@@ -1,0 +1,3 @@
+[submodule "lib/p5js"]
+	path = lib/p5js
+	url = https://github.com/bensnell/p5.js.git
