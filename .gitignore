@@ -1,0 +1,19 @@
+.DS_Store
+
+# Distributables
+dist
+!doc/**/dist
+
+# Environment Variables
+env.js
+
+# Node
+node_modules
+.node-persist
+.aws-sam
+build/
+.env
+yarn-error.log
+
+# Output images
+output
