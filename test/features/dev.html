@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>  
+  <title>Features</title>
+  <style>
+    body {
+      background: #FFF;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      margin: 0
+    }
+
+    canvas {
+      margin: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <script src="../../env.js"></script>
+  <script src="../../src/shared/token-data.js"></script>
+
+  <script src="../../src/app/metadata.js"></script>
+  <script src="../../src/app/random-number-generator.js"></script>
+  <script src="../../src/app/globals.js"></script>
+
+  <script src="../../src/features/features.template.js"></script>
+
+  <script>
+    let features = calculateFeatures(tokenData);
+    console.log(JSON.stringify(features, null, 2));
+    console.log(features);
+  </script>
+
+</body>
+
+</html>

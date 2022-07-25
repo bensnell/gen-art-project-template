@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>  
+  <title>Project Title</title>
+  <style>
+    body {
+      background: #FFF;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      margin: 0
+    }
+    canvas {
+      margin: auto;
+      display: block;
+    }
+    body.dark-theme {
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // Turn on dark color scheme if preferred by user.
+    // https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (prefersDarkScheme.matches) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+  <script>
+    //TOKEN_DATA_BEGIN//
+    
+    //TOKEN_DATA_END//
+  </script>
+  <script>
+    // If the hash is passed as a url parameter, then set it.
+    // https://www.sitepoint.com/get-url-parameters-with-javascript/
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("hash")) tokenData.hash = urlParams.get("hash");
+  </script>
+  <script>
+    // Add License Here
+
+    //APP_BEGIN//
+
+    //APP_END//
+  </script>
+  <script>
+    // Log relevant information to the console.
+    console.log("____ © ____ by ____ is licensed under ____");
+    let metadata = {};
+    let values = META.split("_").concat(tokenData.hash);
+    ['Artist','Title','Version','Hash'].map((key, index) => metadata[key] = values[index]);
+    console.log(metadata);
+  </script>
+</body>
+
+</html>

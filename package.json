@@ -1,0 +1,16 @@
+{
+    "name": "batch-renderer",
+    "version": "0.0.0",
+    "description": "A package for batch rendering ArtBlocks applications.",
+    "main": "index.js",
+    "type": "module",
+    "dependencies": {
+        "cli-progress": "^3.10.0",
+        "puppeteer": "^13.3.2",
+        "yargs": "^17.1.1-candidate.0",
+        "artblocks": "^0.1.1"
+    },
+    "scripts": {
+        "start": "node ./index.js"
+    }
+}
