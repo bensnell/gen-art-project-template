@@ -22,7 +22,7 @@ uglifyjs -c -m -o $FEATURES_MIN \
   src/features/main.js
 
 # Put the minified feature script libraries into the feature script
-sed -e '/\/\/FEATURE_SCRIPT_BEGIN\/\//r'$FEATURES_MIN src/features/features.template.js > $FEATURES_SCRIPT
+sed -e '/\/\/FEATURE_SCRIPT_DEPENDENCIES_BEGIN\/\//r'$FEATURES_MIN src/features/features.template.js > $FEATURES_SCRIPT
 
 # Remove the minified feature script
 rm $FEATURES_MIN
