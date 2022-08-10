@@ -1,4 +1,7 @@
-// Random number generator
+// Instantiate a random number generator
+var R = new RNG();
+
+// Random number generator class
 class RNG {
   constructor() {
     let _ = this;
@@ -29,22 +32,29 @@ class RNG {
       _.A();
       _.B();
     }
+
+    // Save an integer seed to use to seed p5.js
+    _.seed = _.i(0, 1e10);
   }
+
   // random number between 0 (inclusive) and 1 (exclusive)
   d() {
     let _ = this;
     _.U = !_.U;
     return _.U ? _.A() : _.B();
   }
+
   // random number between a (inclusive) and b (exclusive)
   n(a, b) {
     return a + (b - a) * this.d();
   }
+
   // random integer between a (inclusive) and b (inclusive)
   // requires a < b for proper probability distribution
   i(a, b) {
     return FL(this.n(a, b + 1));
   }
+  
   // Random gaussian
   g(m = 0, s = 1, l = 1, h = 1) { // l and h are multipliers applied to the lo's (<0) and hi's (>0)
     let _ = this,
