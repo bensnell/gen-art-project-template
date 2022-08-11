@@ -17,8 +17,9 @@ fi
 # Combine, compress and mangle all application js files 
 uglifyjs -c -m -o $APP_MIN \
   src/app/metadata.js \
-  src/app/helpers.js \
   src/app/random-number-generator.js \
+  src/app/feature-seeds.js \
+  src/app/helpers.js \
   src/app/globals.js \
   src/app/main.js
 

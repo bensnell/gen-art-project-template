@@ -15,11 +15,9 @@ fi
 
 # Generate the minified features script
 uglifyjs -c -m -o $FEATURES_MIN \
-  src/features/window-shim.js \
   src/app/metadata.js \
   src/app/random-number-generator.js \
-  src/app/globals.js \
-  src/features/main.js
+  src/app/feature-seeds.js
 
 # Put the minified feature script libraries into the feature script
 sed -e '/\/\/FEATURE_SCRIPT_DEPENDENCIES_BEGIN\/\//r'$FEATURES_MIN src/features/features.template.js > $FEATURES_SCRIPT
