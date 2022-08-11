@@ -6,13 +6,18 @@
  */
 function calculateFeatures(tokenData) {
 
-  //FEATURE_SCRIPT_BEGIN//
+  //FEATURE_SCRIPT_DEPENDENCIES_BEGIN//
   
-  //FEATURE_SCRIPT_END//  
+  //FEATURE_SCRIPT_DEPENDENCIES_END//  
+
+  // ^ DO NOT EDIT
+  // ==========================================================================
 
   let features = {};
 
-  // Calculate your features here
+  // Calculate your features here, using the existing object `featureSeeds`.
+
+  features['Radius'] = featureSeeds.radius;
 
   return features;
 }
