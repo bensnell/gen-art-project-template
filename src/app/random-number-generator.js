@@ -1,6 +1,3 @@
-// Instantiate a random number generator
-var R = new RNG();
-
 // Random number generator class
 class RNG {
   constructor() {
@@ -52,7 +49,7 @@ class RNG {
   // random integer between a (inclusive) and b (inclusive)
   // requires a < b for proper probability distribution
   i(a, b) {
-    return FL(this.n(a, b + 1));
+    return Math.floor(this.n(a, b + 1));
   }
   
   // Random gaussian
@@ -63,7 +60,10 @@ class RNG {
       o;
     while (a === 0) a = _.d();
     while (b === 0) b = _.d();
-    o = sqrt(-2 * log(a)) * cos(2 * PI * b);
+    o = Math.sqrt(-2 * Math.log(a)) * Math.cos(2 * Math.PI * b);
     return o * [o > 0 ? h : l] * s + m;
   }
 }
+
+// Instantiate a random number generator
+var R = new RNG();
