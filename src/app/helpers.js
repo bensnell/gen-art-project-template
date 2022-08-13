@@ -83,8 +83,8 @@ var wrappedAverage = (a, r, w) => wrap(
 
 // ND-ranges
 var range1 = (a) => Array(a).fill(0).map((_, i) => i);
-var range2 = (a, b) => N(a).map(i => N(b).map(j => [i, j])).flat();
-var range3 = (a, b, c) => N(a).map(i => N(b).map(j => N(c).map(k => [i, j, k]))).flat().flat();
+var range2 = (a, b) => range1(a).map(i => range1(b).map(j => [i, j])).flat();
+var range3 = (a, b, c) => range1(a).map(i => range1(b).map(j => range1(c).map(k => [i, j, k]))).flat().flat();
 
 // Swap values at indices `p` and `q` in array `a`
 var swap = (a, p, q) => [a[p], a[q]] = [a[q], a[p]];
