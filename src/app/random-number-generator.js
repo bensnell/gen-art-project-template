@@ -63,6 +63,12 @@ class RNG {
     o = Math.sqrt(-2 * Math.log(a)) * Math.cos(2 * Math.PI * b);
     return o * [o > 0 ? h : l] * s + m;
   }
+  
+  // Random choice
+  //  v   list of values to choose from
+  c(v) {
+    return v[this.i(0, v.length-1)];
+  }
 }
 
 // Instantiate a random number generator
