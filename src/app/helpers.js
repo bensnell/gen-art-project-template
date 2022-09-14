@@ -195,6 +195,17 @@ Array.prototype.sortByKey = function (k, i = 1) {
 }; 
 // Reduce; works slightly differently than reduce because initialValue defaults to 0
 Array.prototype.reduceArray = function (f, i = 0) { return this.reduce(f, i) };
+// Sort Numbers (https://stackoverflow.com/questions/1063007/how-to-sort-an-array-of-integers-correctly)
+Array.prototype.sortNumber = function() { 
+  return this.sort(function(a, b) {
+    if( a === Infinity ) 
+      return 1; 
+    else if( isNaN(a)) 
+      return -1;
+    else 
+      return a - b;
+  });
+}
 
 // Hash of string or number
 var hash = (v, i = 0) => (typeof (v) == 'string' ? range1(v.length).reduceArray((p, c) => p + v.charCodeAt(c) * 31 ** c) : v) * 31 ** i;
