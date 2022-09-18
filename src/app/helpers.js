@@ -36,7 +36,7 @@ var minmax = (...a) => [Math.min(...a), Math.max(...a)];
 // Wrap
 //    a   in value (value to wrap)
 //    r   range within which to wrap
-var wrap = (a, r) => (a + clamp(Math.abs(a / r)) * r) % r;
+var wrap = (a, r) => (a + Math.ceil(Math.abs(a / r)) * r) % r;
 
 // XOR
 var xor = (a, b) => (a || b) && !(a && b); // XOR function
