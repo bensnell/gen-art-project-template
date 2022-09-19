@@ -8,7 +8,7 @@ var shuffle = (a, m) => {
 
   let r, // random
     t, // tmp
-    i = a.l(); // index
+    i = a.length; // index
   while (i > 1) {
     r = (R.d() * i) | 0;
 
