@@ -229,3 +229,16 @@ var mapValue = (n, start1, stop1 = 1, start2 = 0, stop2 = 1, withinBounds = true
 // Unzip a zipped list; Expects all sublists to have equal length; e.g. [[a1,b1],[a2,b2]]=>[[a1,a2],[b1,b2]]
 var unzip = (a) => a && a[0] instanceof Array ? a[0].map((_, i) => a.map(j => j[i])) : a;
 
+// Map a value to the logistic function
+var logistic = (_a, lo=0, hi=1) => {
+  a = mapValue(_a, lo, hi, 0, 1);
+  return a <= 0 ? 0 : (a >= 1 ? 1 : (1 - Math.cos(Math.PI * a))/2);
+}
+
+// Map a value unevenly, but smoothly with a provided mid value
+var mapValueLog = (value, lo1, mi1, hi1, lo2, mi2, hi2, withinBounds) => {
+  let e1 = log(0.5, mapValue(mi1, lo1, hi1, 0, 1, true));
+  let e2 = log(mapValue(mi2, lo2, hi2, 0, 1, true), 0.5);
+  let valueNormalized = power(power(mapValue(value, lo1, hi1, 0, 1, withinBounds), e1), e2);
+  return mapValue(valueNormalized, 0, 1, lo2, hi2, withinBounds);
+}
