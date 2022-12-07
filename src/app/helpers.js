@@ -69,6 +69,12 @@ var minWrappedDiff = (a, b, r) => {
   return (c - d) * (f ? -1 : 1);
 }
 
+// Calculate the absolute wrapped difference of a - b.
+// This is the absolute difference between a and b, in this order.
+var absWrappedDiff = (a, b, r) => {
+  return wrap(minWrappedDiff(a, b, r), r);
+}
+
 // Wrapped Average; Calculate the average of a list of values `a` existing in range `r`; Optionally include weights `w` for each element in `a`
 var wrappedAverage = (a, r, w) => wrap(
   noNAN(Math.atan2(
