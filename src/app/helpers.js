@@ -212,6 +212,15 @@ Array.prototype.sortNumber = function() {
       return a - b;
   });
 }
+// Roll / Rotate / Offset an array
+Array.prototype.roll = function(offset, reverse=false) {
+  offset = wrap(offset, this.length);
+  for (let i = 0; i < offset; i++) {
+    if (reverse) this.unshift(this.pop());
+    else this.push(this.shift());  
+  }
+  return this;
+}
 
 // Hash of string or number
 var hash = (v, i = 0) => (typeof (v) == 'string' ? range1(v.length).reduceArray((p, c) => p + v.charCodeAt(c) * 31 ** c) : v) * 31 ** i;
