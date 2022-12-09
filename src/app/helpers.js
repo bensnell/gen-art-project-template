@@ -161,7 +161,7 @@ var getValueByKeys = (a, b) => [b].flatRecursive().reduceArray((p, c) => p[c], a
 Array.prototype.at = function (v) { 
   let _ = this;
   let l = _.length; 
-  return l == 0 ? 0 : _[wrap(parseInt(v), l)] 
+  return l == 0 ? null : _[wrap(parseInt(v), l)];
 }
 // Cumulative Sum
 Array.prototype.cumulativeSum = function () { 
