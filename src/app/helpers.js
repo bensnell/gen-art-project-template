@@ -235,6 +235,13 @@ Array.prototype.argMax = function() {
 Array.prototype.argMin = function() {
   return this.argAt((a,b) => a-b);
 }
+// Get the min or max value
+Array.prototype.min = function() {
+  return Math.min(...this);
+}
+Array.prototype.max = function() {
+  return Math.max(...this);
+}
 
 // Hash of string or number
 var hash = (v, i = 0) => (typeof (v) == 'string' ? range1(v.length).reduceArray((p, c) => p + v.charCodeAt(c) * 31 ** c) : v) * 31 ** i;
