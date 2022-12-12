@@ -242,6 +242,18 @@ Array.prototype.min = function() {
 Array.prototype.max = function() {
   return Math.max(...this);
 }
+// Return a new array with values from this array at the indices provided.
+// This is similar to numpy.take()
+Array.prototype.take = function(...indices) {
+  indices = indices.flat();
+  return indices.map(index => {
+    if (Array.isArray(index)) {
+      return this.take(index);
+    } else {
+      return this.at(index);
+    }
+  });
+}
 
 // Hash of string or number
 var hash = (v, i = 0) => (typeof (v) == 'string' ? range1(v.length).reduceArray((p, c) => p + v.charCodeAt(c) * 31 ** c) : v) * 31 ** i;
