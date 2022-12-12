@@ -221,6 +221,20 @@ Array.prototype.roll = function(offset, reverse=false) {
   }
   return this;
 }
+// Get the index that maximizes the compare function provided
+Array.prototype.argAt = function(compare) {
+  let first = [...this]
+    .map((item, index) => [item, index])
+    .sort((a,b) => compare(a[0],b[0]))
+    .at(0);
+  return first ? first[1] : first;
+}
+Array.prototype.argMax = function() {
+  return this.argAt((a,b) => b-a);
+}
+Array.prototype.argMin = function() {
+  return this.argAt((a,b) => a-b);
+}
 
 // Hash of string or number
 var hash = (v, i = 0) => (typeof (v) == 'string' ? range1(v.length).reduceArray((p, c) => p + v.charCodeAt(c) * 31 ** c) : v) * 31 ** i;
