@@ -132,7 +132,7 @@ var deepCopy = (a, b) => {
 };
 
 // No NAN's with the default value `d`
-var noNAN = (a, d = 0) => Number.isNaN(a) ? a : d;
+var noNAN = (a, d = 0) => Number.isNaN(a) ? d : a;
 
 // Mod, with no negative values returned
 var mod = (a, b) => (a + Math.abs(Math.floor(a / b)) * b) % b;
