@@ -68,11 +68,13 @@ var minWrappedDiff = (a, b, r) => {
   [c, d, f] = prepareWrappedComparison(a, b, r);
   return (c - d) * (f ? -1 : 1);
 }
-
-// Calculate the absolute wrapped difference of a - b.
-// This is the absolute difference between a and b, in this order.
-var absWrappedDiff = (a, b, r) => {
+// Calculate the unidirectional wrapped difference of a - b.
+var uniWrappedDiff = (a, b, r) => {
   return wrap(minWrappedDiff(a, b, r), r);
+}
+// Calculate the absolute wrapped difference of a - b.
+var absWrappedDiff = (a, b, r) => {
+  return Math.abs(minWrappedDiff(a, b, r));
 }
 
 // Wrapped Average; Calculate the average of a list of values `a` existing in range `r`; Optionally include weights `w` for each element in `a`
