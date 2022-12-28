@@ -90,9 +90,16 @@ var wrappedAverage = (a, r, w) => wrap(
 ) / 2 / Math.PI * r;
 
 // ND-ranges
-var range1 = (a) => Array(a).fill(0).map((_, i) => i);
-var range2 = (a, b) => range1(a).map(i => range1(b).map(j => [i, j])).flat();
-var range3 = (a, b, c) => range1(a).map(i => range1(b).map(j => range1(c).map(k => [i, j, k]))).flat().flat();
+var range = (...dims) => {
+  if (dims && dims.length > 0 && Array.isArray(dims[0])) dims = dims[0];
+  let nTotalDims = dims.length;
+  let range1 = (a) => Array(a).fill(0).map((_, i) => i);
+  let out = [[]];
+  while(dims.length > 0) {
+    out = range1(dims.pop()).map(i => out.map(j => [i].concat(j))).flat();
+  }
+  return nTotalDims <= 1 ? out.flat() : out;
+}
 
 // Swap values at indices `p` and `q` in array `a`
 var swap = (a, p, q) => [a[p], a[q]] = [a[q], a[p]];
@@ -258,7 +265,7 @@ Array.prototype.take = function(...indices) {
 }
 
 // Hash of string or number
-var hash = (v, i = 0) => (typeof (v) == 'string' ? range1(v.length).reduceArray((p, c) => p + v.charCodeAt(c) * 31 ** c) : v) * 31 ** i;
+var hash = (v, i = 0) => (typeof (v) == 'string' ? range(v.length).reduceArray((p, c) => p + v.charCodeAt(c) * 31 ** c) : v) * 31 ** i;
 
 // Power (allows negative values)
 var power = (b, e) => Math.pow(Math.abs(b), e) * Math.sign(b); 
