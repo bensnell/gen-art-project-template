@@ -299,3 +299,9 @@ var mapValueLog = (value, lo1, mi1, hi1, lo2, mi2, hi2, withinBounds) => {
   let valueNormalized = power(power(mapValue(value, lo1, hi1, 0, 1, withinBounds), e1), e2);
   return mapValue(valueNormalized, 0, 1, lo2, hi2, withinBounds);
 }
+
+// Find all 2-combinations of the values provided
+var choose2 = (values) =>
+  values.flatMap(
+    (v, i) => values.slice(i+1).map( w => [v, w] )
+  );
