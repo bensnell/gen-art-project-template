@@ -3,7 +3,7 @@
 // point that shuffle was connected to the random seed.)
 //    a   array
 //    m   modify passed array? (default: false)
-var shuffle = (a, m) => {
+var shuffleList = (a, m) => {
   a = m ? a : a.slice();
 
   let r, // random
@@ -271,7 +271,7 @@ var hash = (v, i = 0) => (typeof (v) == 'string' ? range(v.length).reduceArray((
 var power = (b, e) => Math.pow(Math.abs(b), e) * Math.sign(b); 
 
 // Log with optional base
-var log = (v, b = 10) => Math.log(v) / Math.log(b);
+var logarithm = (v, b = 10) => Math.log(v) / Math.log(b);
 
 // Map value function, with defaults
 var mapValue = (n, start1, stop1 = 1, start2 = 0, stop2 = 1, withinBounds = true) => {
@@ -294,8 +294,8 @@ var logistic = (_a, lo=0, hi=1) => {
 
 // Map a value unevenly, but smoothly with a provided mid value
 var mapValueLog = (value, lo1, mi1, hi1, lo2, mi2, hi2, withinBounds) => {
-  let e1 = log(0.5, mapValue(mi1, lo1, hi1, 0, 1, true));
-  let e2 = log(mapValue(mi2, lo2, hi2, 0, 1, true), 0.5);
+  let e1 = logarithm(0.5, mapValue(mi1, lo1, hi1, 0, 1, true));
+  let e2 = logarithm(mapValue(mi2, lo2, hi2, 0, 1, true), 0.5);
   let valueNormalized = power(power(mapValue(value, lo1, hi1, 0, 1, withinBounds), e1), e2);
   return mapValue(valueNormalized, 0, 1, lo2, hi2, withinBounds);
 }
