@@ -1,3 +1,6 @@
 [submodule "lib/p5js"]
 	path = lib/p5js
 	url = https://github.com/bensnell/p5.js.git
+[submodule "src/shared"]
+	path = src/shared
+	url = https://github.com/bensnell/gen-art-shared-js.git
