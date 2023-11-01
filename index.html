@@ -25,10 +25,7 @@
 </head>
 
 <body>
-  <!-- External Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-  <!-- <script src="lib/p5.min.js"></script> -->
-  
+
   <!-- Token Data -->
   <script src="env.js"></script>
   <script src="src/shared/token-data.js"></script>
@@ -37,24 +34,35 @@
   </script>
 
   <!-- Application Metadata -->
-  <script src="src/app/metadata.js"></script>
+  <script src="src/app/metadata.js" class="app features"></script>
   <script>
     console.log(META);
   </script>
 
-  <!-- Feature Seed Code -->
-  <script src="src/shared/random-number-generator.js"></script>
-  <script src="src/app/feature-seeds.js"></script>
+  <!-- Debug (Commentable) -->
+  <!-- <script src="src/shared/timesample.js"></script> -->
+  <!-- <script src="src/shared/FileSaver.js"></script> -->
+  <!-- <script src="src/shared/kdTree.js"></script> -->
+
+  <!-- Global Variables -->
+  <script src="src/app/globals.js" class="app features"></script>
+
+  <!-- Feature Seed -->
+  <script src="src/shared/random-number-generator.js" class="app features"></script>
+  <script src="src/shared/helpers.js" class="app features"></script>
+  <script src="src/app/feature-seeds.js" class="app features"></script>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+  <!-- <script src="lib/p5.min.js"></script> -->
   
-  <!-- Application Code -->
-  <script src="src/shared/helpers.js"></script>
-  <script src="src/app/globals.js"></script>
-  <script src="src/app/main.js"></script>
+  <!-- Application Code (Logic & Rendering) -->
+  <script src="src/app/main.js" class="app"></script>
 
   <!-- Feature Code -->
   <script src="src/features/features.template.js"></script>
   <script>
-    console.log(calculateFeatures(tokenData));
+    console.log(JSON.stringify(calculateFeatures(tokenData), null, 2));
   </script>
   
 </body>

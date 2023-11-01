@@ -38,6 +38,7 @@
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script> -->
   <script>
     //TOKEN_DATA_BEGIN//
     
@@ -56,13 +57,33 @@
 
     //APP_END//
   </script>
+  <!-- <script>
+    //CALCULATE_FEATURES_BEGIN//
+
+    //CALCULATE_FEATURES_END//
+  </script> -->
   <script>
     // Log relevant information to the console.
     console.log("____ © ____ by ____ is licensed under ____");
     let metadata = {};
     let values = META.split("_").concat(tokenData.hash);
     ['Artist','Title','Version','Hash'].map((key, index) => metadata[key] = values[index]);
+    // metadata['Features'] = calculateFeatures(tokenData);
     console.log(metadata);
+  </script>
+  <script>
+    addEventListener("click", (event) => {});
+    let lastClickTime = 0;
+    ondblclick = () => {
+      navigator.clipboard.writeText(window.location.href+'?hash='+tokenData.hash);
+    }
+    onclick = (event) => {
+      let thisClickTime = (new Date()).getTime();
+      if ((thisClickTime - lastClickTime) < 600) {
+        ondblclick();
+      }
+      lastClickTime = thisClickTime;
+    };
   </script>
 </body>
 
