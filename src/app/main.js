@@ -10,8 +10,6 @@ function setup() {
   noStroke();
   background(1,0.8,0.8);
 
-  console.log("HERE");
-
 }
 
 function draw() {
