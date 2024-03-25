@@ -36,6 +36,8 @@ The rest of the code for this project exists in the following folders:
 - *test*: Web development and production tests (html files) that link against the development and production files.
 - *doc*: Documentation and reference.
 
+To develop this application, open in VS Code and "Go Live" from the options in the window's bottom bar.
+
 ### Release Checklist
 
 1. Determine how to increment the version, according to the rules below. 
