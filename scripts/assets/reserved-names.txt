@@ -1,4 +1,7 @@
 META
 featureSeeds
+preload
+setup
+draw
 ballPosition
 ballDirection
