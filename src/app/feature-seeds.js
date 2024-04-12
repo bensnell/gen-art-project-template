@@ -9,10 +9,15 @@ var featureSeeds = (()=>{
   // aesthetic randomness (e.g. perlin noise).
 
   // ------------------------
+  
+  RF.goto('Seed');
+  let seed = RF.int(0, 2**24);
+
   RF.goto('Radius');
-  let radius = R.n(10,50);
+  let radius = RF.num(10,50);
   
   return {
+    seed,
     radius,
   };
 

@@ -1,7 +1,7 @@
 function setup() {
 
-  randomSeed(R.seed);
-  noiseSeed(R.seed);
+  randomSeed(featureSeeds.seed);
+  noiseSeed(featureSeeds.seed);
 
   let dim = min(window.innerWidth, window.innerHeight);
   createCanvas(dim, dim);
